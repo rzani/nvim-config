@@ -61,7 +61,7 @@ return require('packer').startup({function(use)
     }
 
     -- Show keymaps
-    use { "folke/which-key.nvim" }
+    use  'folke/which-key.nvim'
 
     -- Status Line
     use {
@@ -70,14 +70,16 @@ return require('packer').startup({function(use)
     }
 
     -- Floating Terminal
-    use "numToStr/FTerm.nvim"
+    use 'numToStr/FTerm.nvim'
 
     -- Easy Motion
-    use {
-        'phaazon/hop.nvim',
-    }
+    use 'phaazon/hop.nvim'
 
+    -- Smooth Scrolling
     use 'karb94/neoscroll.nvim'
+
+    -- Auto Pairs
+    use 'windwp/nvim-autopairs'
 
     if packer_bootstrap then
         require('packer').sync()

@@ -67,3 +67,5 @@ require("which-key").setup()
 require'alpha'.setup(require'alpha.themes.startify'.config)
 
 require('neoscroll').setup()
+
+require("nvim-autopairs").setup()

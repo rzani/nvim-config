@@ -22,6 +22,8 @@ map("n", "<leader> ", ":nohlsearch<CR>")
 map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
 map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
+map('n', '<leader>.', '<C-^><CR>')
+
 -- ------- --
 -- PLUGINS --
 -- ------- --
