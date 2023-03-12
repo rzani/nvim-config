@@ -23,3 +23,8 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.g.encoding='UTF-8'
+
+vim.o.nobackup = true
+vim.o.noswapfile = true
+vim.o.undofile = true
+vim.g.undodir = '/tmp'

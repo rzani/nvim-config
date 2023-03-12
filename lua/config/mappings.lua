@@ -16,3 +16,9 @@ map('n', '<leader>q', ':bp <BAR> bd! #<CR>')
 
 -- NvimTree
 map('n', '-', ':NvimTreeToggle <CR>')
+
+-- Moving lines arround in visual mode
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "<", "<gv")
+map("v", ">", ">gv")

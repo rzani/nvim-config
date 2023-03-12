@@ -39,3 +39,7 @@ require("nvim-tree").setup{
         },
     }
 }
+
+require('feline').setup()
+ 
+require('gitsigns').setup()
