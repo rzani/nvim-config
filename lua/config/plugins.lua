@@ -62,3 +62,6 @@ require('FTerm').setup({
 
 require('hop').setup()
 
+require("which-key").setup()
+
+require'alpha'.setup(require'alpha.themes.startify'.config)

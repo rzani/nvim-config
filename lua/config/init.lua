@@ -56,14 +56,12 @@ return require('packer').startup({function(use)
 
     --Startup page
     use {
-        'glepnir/dashboard-nvim',
-        event = 'VimEnter',
-        config = function()
-            require('dashboard').setup {
-            }
-        end,
-        requires = {'nvim-tree/nvim-web-devicons'}
+        'goolord/alpha-nvim',
+        requires = { 'nvim-tree/nvim-web-devicons' }
     }
+
+    -- Show keymaps
+    use { "folke/which-key.nvim" }
 
     -- Status Line
     use {

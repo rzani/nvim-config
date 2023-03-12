@@ -31,5 +31,6 @@ vim.o.noswapfile = true
 vim.o.undofile = true
 vim.g.undodir = '/tmp'
 
-vim.o.noshowmode = true
-vim.o.noruler = true
+vim.cmd([[
+:set noshowmode
+]])

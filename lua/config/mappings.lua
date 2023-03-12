@@ -3,14 +3,6 @@ local opts = {noremap = true}
 
 vim.g.mapleader = ','
 
--- Telescope Plugin (Searching files)
-local telescope = require('telescope.builtin')
-map('n', '<C-p>', telescope.find_files)
-map('n', '<leader>f', telescope.live_grep)
-map('n', '<leader>g', telescope.git_files)
-map('n', '<Tab>', telescope.buffers)
-map('n', '<leader>fh', telescope.help_tags)
-
 -- Closing Buffer
 map('n', '<leader>q', ':bp <BAR> bd! #<CR>')
 
@@ -30,21 +22,23 @@ map("n", "<leader> ", ":nohlsearch<CR>")
 map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
 map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
+-- ------- --
+-- PLUGINS --
+-- ------- --
+
+-- Telescope Plugin (Searching files)
+-- ------------------------------------
+local telescope = require('telescope.builtin')
+map('n', '<C-p>', telescope.find_files)
+map('n', '<leader>f', telescope.live_grep)
+map('n', '<leader>g', telescope.git_files)
+map('n', '<Tab>', telescope.buffers)
+map('n', '<leader>fh', telescope.help_tags)
+
+
 -- GitSigns
+-- --------------------
 local gs = require('gitsigns')
-map('n', ']c', function()
-    if vim.wo.diff then return ']c' end
-    vim.schedule(function() gs.next_hunk() end)
-    return '<Ignore>'
-end, {expr=true})
-
-map('n', '[c', function()
-    if vim.wo.diff then return '[c' end
-    vim.schedule(function() gs.prev_hunk() end)
-    return '<Ignore>'
-end, {expr=true})
-
--- Actions
 map('n', '<leader>hs', gs.stage_buffer)
 map('n', '<leader>hS', gs.undo_stage_hunk)
 map('n', '<leader>hR', gs.reset_buffer)
@@ -54,23 +48,22 @@ map('n', '<leader>tb', gs.toggle_current_line_blame)
 map('n', '<leader>hd', gs.diffthis)
 map('n', '<leader>hD', function() gs.diffthis('~') end)
 map('n', '<leader>td', gs.toggle_deleted)
-
--- Text object
 map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 
 
 -- Hop (easy motion)
+-- --------------------
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
 
-map('n', ' f', function()
+map('n', '<Space>f', function()
   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
 end, {remap=true})
 
-map('n', ' F', function()
+map('n', '<Space>F', function()
   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
 end, {remap=true})
 
-map('', '  ', ':HopPattern <CR>')
+map('n', '<Space><Space>', ':HopPattern <CR>')
 
 
