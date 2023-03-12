@@ -65,3 +65,5 @@ require('hop').setup()
 require("which-key").setup()
 
 require'alpha'.setup(require'alpha.themes.startify'.config)
+
+require('neoscroll').setup()

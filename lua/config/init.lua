@@ -77,6 +77,8 @@ return require('packer').startup({function(use)
         'phaazon/hop.nvim',
     }
 
+    use 'karb94/neoscroll.nvim'
+
     if packer_bootstrap then
         require('packer').sync()
     else
