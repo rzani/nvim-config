@@ -59,3 +59,18 @@ map('n', '<leader>td', gs.toggle_deleted)
 map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 
 
+-- Hop (easy motion)
+local hop = require('hop')
+local directions = require('hop.hint').HintDirection
+
+map('n', ' f', function()
+  hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+end, {remap=true})
+
+map('n', ' F', function()
+  hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+end, {remap=true})
+
+map('', '  ', ':HopPattern <CR>')
+
+

@@ -74,6 +74,11 @@ return require('packer').startup({function(use)
     -- Floating Terminal
     use "numToStr/FTerm.nvim"
 
+    -- Easy Motion
+    use {
+        'phaazon/hop.nvim',
+    }
+
     if packer_bootstrap then
         require('packer').sync()
     else

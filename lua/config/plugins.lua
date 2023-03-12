@@ -52,11 +52,13 @@ require('feline').setup()
 require('gitsigns').setup()
 
 -- Floating terminal
-require'FTerm'.setup({
+require('FTerm').setup({
     border = 'double',
     dimensions  = {
         height = 0.9,
         width = 0.9,
     },
 })
+
+require('hop').setup()
 
