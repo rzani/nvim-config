@@ -71,6 +71,9 @@ return require('packer').startup({function(use)
         requires = {'lewis6991/gitsigns.nvim'}
     }
 
+    -- Floating Terminal
+    use "numToStr/FTerm.nvim"
+
     if packer_bootstrap then
         require('packer').sync()
     else

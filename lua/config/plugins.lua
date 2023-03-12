@@ -1,5 +1,7 @@
+-- Theme
 require('onedark').load()
 
+-- Telescope (file search) 
 require('telescope').setup{
     defaults = {
         path_display={"smart"},
@@ -40,6 +42,18 @@ require("nvim-tree").setup{
     }
 }
 
+-- Show status line
 require('feline').setup()
  
+-- Show git status in Feline
 require('gitsigns').setup()
+
+-- Floating terminal
+require'FTerm'.setup({
+    border = 'double',
+    dimensions  = {
+        height = 0.9,
+        width = 0.9,
+    },
+})
+

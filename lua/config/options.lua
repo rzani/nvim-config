@@ -22,9 +22,14 @@ vim.opt.termguicolors = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Default encoding
 vim.g.encoding='UTF-8'
 
+-- Backup files
 vim.o.nobackup = true
 vim.o.noswapfile = true
 vim.o.undofile = true
 vim.g.undodir = '/tmp'
+
+vim.o.noshowmode = true
+vim.o.noruler = true
