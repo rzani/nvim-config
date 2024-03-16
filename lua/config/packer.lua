@@ -32,52 +32,54 @@ return require('packer').startup({function(use)
         requires = {{'nvim-lua/plenary.nvim'}}
     }
 
+    use {'ThePrimeagen/harpoon'}
+
     -- for live_grep in telescope
-    use 'BurntSushi/ripgrep'
+    --use 'BurntSushi/ripgrep'
 
     -- improve find_files in telescope
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- File explorer
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
+    --use {
+        --'nvim-tree/nvim-tree.lua',
+        --requires = {
             -- install  git clone https://github.com/ryanoasis/nerd-fonts.git
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    }
+            --'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        --},
+        --tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    --}
 
     --Startup page
-    use {
-        'goolord/alpha-nvim',
-        requires = { 'nvim-tree/nvim-web-devicons' }
-    }
+    --use {
+        --'goolord/alpha-nvim',
+        --requires = { 'nvim-tree/nvim-web-devicons' }
+    --}
 
     -- Show keymaps
-    use  'folke/which-key.nvim'
+    --use  'folke/which-key.nvim'
 
     -- Status Line
-    use {
-        'freddiehaddad/feline.nvim',
-        requires = {'lewis6991/gitsigns.nvim'}
-    }
+    --use {
+        --'freddiehaddad/feline.nvim',
+        --requires = {'lewis6991/gitsigns.nvim'}
+    --}
 
     -- Floating Terminal
-    use 'numToStr/FTerm.nvim'
+    --use 'numToStr/FTerm.nvim'
 
     -- Easy Motion
-    use 'phaazon/hop.nvim'
+    --use 'phaazon/hop.nvim'
 
     -- Smooth Scrolling
-    use 'karb94/neoscroll.nvim'
+    --use 'karb94/neoscroll.nvim'
 
     -- Auto Pairs
-    use 'windwp/nvim-autopairs'
+    --use 'windwp/nvim-autopairs'
 
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end}
+    --use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        --require("toggleterm").setup()
+    --end}
 
     -- Language Serves
 
@@ -86,22 +88,22 @@ return require('packer').startup({function(use)
     use 'williamboman/mason.nvim'
 
     -- Language Server 
-    use 'neovim/nvim-lspconfig'
+    --use 'neovim/nvim-lspconfig'
 
     -- Java
     -- brew install jdtls
-    use 'mfussenegger/nvim-jdtls'
+    --use 'mfussenegger/nvim-jdtls'
 
     -- Auto Complete
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-buffer'
+    --use 'hrsh7th/cmp-nvim-lsp'
+    --use 'hrsh7th/nvim-cmp'
+    --use 'hrsh7th/cmp-buffer'
 
     -- Icons
-    use 'onsails/lspkind.nvim'
+    --use 'onsails/lspkind.nvim'
 
     -- Snippets
-    use 'L3MON4D3/LuaSnip'
+    --use 'L3MON4D3/LuaSnip'
 
     if packer_bootstrap then
         require('packer').sync()
