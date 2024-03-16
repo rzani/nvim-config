@@ -1,3 +1,6 @@
+-- Leader key
+vim.g.mapleader = ' '
+
 -- show numbers
 vim.wo.number = true
 
@@ -30,6 +33,8 @@ vim.o.nobackup = true
 vim.o.noswapfile = true
 vim.o.undofile = true
 vim.g.undodir = '/tmp'
+
+vim.opt.clipboard = "unnamedplus"
 
 vim.cmd([[
 :set noshowmode
