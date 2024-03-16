@@ -7,7 +7,15 @@ return require('packer').startup({function(use)
     -------------- Plugins ----------------
     --
     -- Themes
-    use 'navarasu/onedark.nvim'
+    --use 'navarasu/onedark.nvim'
+
+    use({ 
+        'rose-pine/neovim',
+        as = 'rose-pine',
+        config = function()
+            vim.cmd('colorscheme rose-pine')
+        end
+    })
 
     -- Treesitter (Syntax highlight)
     -- Rodar: TSInstall <Language>

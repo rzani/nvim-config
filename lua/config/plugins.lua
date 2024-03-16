@@ -1,5 +1,5 @@
 -- Theme
-require('onedark').load()
+--require('onedark').load()
 
 -- Syntax Highlight
 require('nvim-treesitter.configs').setup{
