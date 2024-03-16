@@ -4,10 +4,7 @@ return require('packer').startup({function(use)
 
     use 'wbthomason/packer.nvim'
 
-    -------------- Plugins ----------------
-    --
-    -- Themes
-    --use 'navarasu/onedark.nvim'
+    --==  Extension  ==--
 
     use({ 
         'rose-pine/neovim',
@@ -25,14 +22,15 @@ return require('packer').startup({function(use)
         run = ':TSUpdate'
     }
 
-    -- telescope (file search)
+    -- File search and dialog management
     use {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.4',
         requires = {{'nvim-lua/plenary.nvim'}}
     }
 
-    use {'ThePrimeagen/harpoon'}
+    -- List of all edition changes
+    use { 'mbbill/undotree' }
 
     -- for live_grep in telescope
     --use 'BurntSushi/ripgrep'
@@ -53,17 +51,21 @@ return require('packer').startup({function(use)
     --Startup page
     --use {
         --'goolord/alpha-nvim',
-        --requires = { 'nvim-tree/nvim-web-devicons' }
     --}
 
     -- Show keymaps
     --use  'folke/which-key.nvim'
+    --
+
+    -- Icons
+    use { 'nvim-tree/nvim-web-devicons' }
+
+    -- Git diff signs
+    use  { 'lewis6991/gitsigns.nvim' }
 
     -- Status Line
-    --use {
-        --'freddiehaddad/feline.nvim',
-        --requires = {'lewis6991/gitsigns.nvim'}
-    --}
+    -- depends on gitsigns and nvim-web-devicons
+    use { 'freddiehaddad/feline.nvim' }
 
     -- Floating Terminal
     --use 'numToStr/FTerm.nvim'

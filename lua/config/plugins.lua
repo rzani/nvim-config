@@ -1,25 +1,3 @@
--- Theme
---require('onedark').load()
-
--- Telescope (file search) 
---require('telescope').setup{
-    --defaults = {
-        --path_display={"smart"},
-    --},
-    --pickers = {
-        --find_files = {
-            --theme = "dropdown",
-        --},
-        --live_grep = {
-            --theme = "dropdown",
-        --}
-    --},
---} 
-
--- ~/.local/share/nvim/mason
-require('mason').setup()
-
-
 
 -- empty setup using defaults
 --local HEIGHT_RATIO = 0.8 -- You can change this
@@ -49,12 +27,6 @@ require('mason').setup()
         --},
     --}
 --}
-
--- Show status line
---require('feline').setup()
- 
--- Show git status in Feline
---require('gitsigns').setup()
 
 -- Floating terminal
 --require('FTerm').setup({
