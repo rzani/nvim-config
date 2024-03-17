@@ -41,10 +41,7 @@ map("n", ",<Space>", ":nohlsearch<CR>")
 
 map("i", "<C-c>", "<Esc>")
 
---vim.lsp.buf.format()
-
 map("n", "<C-k>", "<cmd>cnext<CR>zz")
 map("n", "<C-j>", "<cmd>cprev<CR>zz")
 
-map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 

@@ -6,7 +6,7 @@ neogit.setup()
 
 wk.register({
   g = {
-    name = "git", -- optional group name
+    name = " Git", -- optional group name
     b = { function() gs.blame_line{full=true} end, "blame current line" },
     B = { gs.toggle_current_line_blame, "toggle current line blame" },
     g = { neogit.open, "status page" },

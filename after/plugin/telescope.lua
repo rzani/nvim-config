@@ -1,6 +1,17 @@
 local telescope = require('telescope.builtin')
 local wk = require("which-key")
 
+require('telescope').setup{
+	defaults = {
+		path_display={"smart"}
+	},
+    --pickers = {
+        --find_files = {
+            --theme = "dropdown",
+        --}
+    --},
+    extensions = {}
+}
 
 --map('n', '<leader>g', telescope.git_files)
 --map('n', '<leader><leader>', telescope.buffers)
@@ -14,7 +25,7 @@ wk.register({
 
 wk.register({
   p = {
-    name = "project navigation", -- optional group name
+    name = " Project", -- optional group name
     f = { telescope.find_files, "find files" },
     s = { function() telescope.grep_string({ search = vim.fn.input("Grep > ")}) end, "search in files" },
   },
