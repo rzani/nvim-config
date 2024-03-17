@@ -54,8 +54,7 @@ return require('packer').startup({function(use)
     --}
 
     -- Show keymaps
-    --use  'folke/which-key.nvim'
-    --
+    use  'folke/which-key.nvim'
 
     -- Icons
     use { 'nvim-tree/nvim-web-devicons' }
@@ -66,6 +65,14 @@ return require('packer').startup({function(use)
     -- Status Line
     -- depends on gitsigns and nvim-web-devicons
     use { 'freddiehaddad/feline.nvim' }
+
+    use {
+        "NeogitOrg/neogit",
+        requires = {
+            "sindrets/diffview.nvim",        -- optional - Diff integration
+            "nvim-telescope/telescope.nvim", -- optional
+        }
+    }
 
     -- Floating Terminal
     --use 'numToStr/FTerm.nvim'
