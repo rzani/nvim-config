@@ -1,5 +1,4 @@
 local map = vim.keymap.set
-local opts = {noremap = true}
 
 -- Escape alternatives
 map('i', 'jj', '<esc>')

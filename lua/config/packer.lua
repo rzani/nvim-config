@@ -6,7 +6,8 @@ return require('packer').startup({function(use)
 
     --==  Extension  ==--
 
-    use({ 
+    -- Theme
+    use({
         'rose-pine/neovim',
         as = 'rose-pine',
         config = function()
@@ -14,6 +15,7 @@ return require('packer').startup({function(use)
         end
     })
 
+    -- File Explorer
     use {
         'simonmclean/triptych.nvim',
         requires = {
@@ -22,9 +24,7 @@ return require('packer').startup({function(use)
         }
     }
 
-    -- Treesitter (Syntax highlight)
-    -- Rodar: TSInstall <Language>
-    -- Check installes LS: TSInstallInfo
+    -- Syntax highlight
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
@@ -37,24 +37,11 @@ return require('packer').startup({function(use)
         requires = {{'nvim-lua/plenary.nvim'}}
     }
 
+    -- Easy Motion
+    use 'smoka7/hop.nvim'
+
     -- List of all edition changes
     use { 'mbbill/undotree' }
-
-    -- for live_grep in telescope
-    --use 'BurntSushi/ripgrep'
-
-    -- improve find_files in telescope
-    --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-    -- File explorer
-    --use {
-        --'nvim-tree/nvim-tree.lua',
-        --requires = {
-            -- install  git clone https://github.com/ryanoasis/nerd-fonts.git
-            --'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        --},
-        --tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    --}
 
     --Startup page
     use { 'goolord/alpha-nvim' }
@@ -69,9 +56,9 @@ return require('packer').startup({function(use)
     use  { 'lewis6991/gitsigns.nvim' }
 
     -- Status Line
-    -- depends on gitsigns and nvim-web-devicons
     use { 'freddiehaddad/feline.nvim' }
 
+    -- Git integration
     use {
         "NeogitOrg/neogit",
         requires = {
@@ -80,45 +67,48 @@ return require('packer').startup({function(use)
         }
     }
 
-    -- Floating Terminal
-    --use 'numToStr/FTerm.nvim'
-
-    -- Easy Motion
-    use 'smoka7/hop.nvim'
-
-    -- Smooth Scrolling
-    --use 'karb94/neoscroll.nvim'
-
     -- Auto Pairs
-    --use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-autopairs'
 
-    --use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-        --require("toggleterm").setup()
-    --end}
 
-    -- Language Serves
+    --
+    --== LSP ==--
+    --
+    use { 'neovim/nvim-lspconfig' }
 
-    -- OmniSharp/omnisharp-vim
-    --use 'OmniSharp/omnisharp-vim'
-    use 'williamboman/mason.nvim'
+    use {'williamboman/mason.nvim'}
+    use {'williamboman/mason-lspconfig.nvim'}
 
-    -- Language Server 
-    --use 'neovim/nvim-lspconfig'
+    -- Autocompletion plugin
+    use 'hrsh7th/nvim-cmp'
+
+    -- LSP source for nvim-cmp
+    use 'hrsh7th/cmp-nvim-lsp'
+
+    -- Snippets source for nvim-cmp
+    use 'saadparwaiz1/cmp_luasnip'
+
+    -- Snippets plugin
+    use 'L3MON4D3/LuaSnip'
+
+
+    --use {
+     --   "L3MON4D3/LuaSnip",
+        -- follow latest release.
+      --  tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+       -- run = "make install_jsregexp"
+--    }
+
+    -- for live_grep in telescope
+    --use 'BurntSushi/ripgrep'
+
+    -- improve find_files in telescope
+    --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Java
     -- brew install jdtls
     --use 'mfussenegger/nvim-jdtls'
-
-    -- Auto Complete
-    --use 'hrsh7th/cmp-nvim-lsp'
-    --use 'hrsh7th/nvim-cmp'
-    --use 'hrsh7th/cmp-buffer'
-
-    -- Icons
-    --use 'onsails/lspkind.nvim'
-
-    -- Snippets
-    --use 'L3MON4D3/LuaSnip'
 
     if packer_bootstrap then
         require('packer').sync()
