@@ -14,6 +14,14 @@ return require('packer').startup({function(use)
         end
     })
 
+    use {
+        'simonmclean/triptych.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim', -- required
+            'nvim-tree/nvim-web-devicons', -- optional
+        }
+    }
+
     -- Treesitter (Syntax highlight)
     -- Rodar: TSInstall <Language>
     -- Check installes LS: TSInstallInfo
@@ -49,9 +57,7 @@ return require('packer').startup({function(use)
     --}
 
     --Startup page
-    --use {
-        --'goolord/alpha-nvim',
-    --}
+    use { 'goolord/alpha-nvim' }
 
     -- Show keymaps
     use { 'folke/which-key.nvim' }

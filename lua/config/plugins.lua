@@ -37,10 +37,6 @@
     --},
 --})
 
---require('hop').setup()
-
-
---require'alpha'.setup(require'alpha.themes.startify'.config)
 
 --require('neoscroll').setup()
 

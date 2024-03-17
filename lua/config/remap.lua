@@ -23,15 +23,11 @@ map("v", ">", ">gv")
 map("n", ",<Space>", ":nohlsearch<CR>")
 
 
-
-
 -- Floating Terminal
 --map('n', '<C-i>', '<CMD>lua require("FTerm").toggle()<CR>')
 --map('t', '<C-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 
--- NvimTree
---map('n', '-', ':NvimTreeToggle <CR>')
 
 --function P.map_java_keys(bufnr)
     --map_lsp_keys()
