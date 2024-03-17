@@ -6,6 +6,7 @@ augroup end
 ]])
 
 require('config.options')
+require('config.remap')
 
 local ensure_packer = function()
     local fn = vim.fn

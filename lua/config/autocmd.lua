@@ -9,11 +9,11 @@ augroup vimrc-remember-cursor-position
 augroup END
 ]])
 
-autocmd('TermOpen', {
-  command = 'setlocal listchars= nonumber norelativenumber nocursorline',
-})
+--autocmd('TermOpen', {
+  --command = 'setlocal listchars= nonumber norelativenumber nocursorline',
+--})
 
-autocmd('TermOpen', {
-  pattern = '',
-  command = 'startinsert'
-})
+--autocmd('TermOpen', {
+  --pattern = '',
+  --command = 'startinsert'
+--})

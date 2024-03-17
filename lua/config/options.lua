@@ -1,11 +1,14 @@
 -- Leader key
 vim.g.mapleader = ' '
 
+-- Default encoding
+vim.g.encoding='UTF-8'
+
 -- show numbers
-vim.wo.number = true
+vim.opt.number = true
 
 -- show relative numbers
-vim.wo.relativenumber = true
+vim.opt.relativenumber = true
 
 -- show matching parenthesis
 vim.o.showmatch = true
@@ -14,9 +17,16 @@ vim.o.showmatch = true
 vim.o.ignorecase = true
 
 -- transform tabs into spaces
-vim.o.expandtab = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+-- I trust you to be smarter and indent nicely
+vim.opt.smartindent = true
+
+-- no wrap line
+vim.opt.wrap = false
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
@@ -25,14 +35,24 @@ vim.opt.termguicolors = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Default encoding
-vim.g.encoding='UTF-8'
-
 -- Backup files
-vim.o.nobackup = true
-vim.o.noswapfile = true
+vim.opt.swapfile = false
+vim.opt.backup = false
 vim.o.undofile = true
 vim.g.undodir = '/tmp'
+
+-- search highlight
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
+
+-- fast updatetime
+vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "80"
 
 vim.opt.clipboard = "unnamedplus"
 

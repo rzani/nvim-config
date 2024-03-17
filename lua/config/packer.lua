@@ -122,9 +122,6 @@ return require('packer').startup({function(use)
 
     if packer_bootstrap then
         require('packer').sync()
-    else
-        require('config.plugins')
-        require('config.remap')
     end
 end,
 
@@ -133,3 +130,22 @@ config = {
         open_fn = require('packer.util').float,
     }
 }})
+
+
+
+-- Floating Terminal
+--map('n', '<C-i>', '<CMD>lua require("FTerm").toggle()<CR>')
+--map('t', '<C-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+
+
+
+--function P.map_java_keys(bufnr)
+    --map_lsp_keys()
+    --local spring_boot_run = 'mvn spring-boot:run'---Dspring-boot.run.profiles=local'
+    --local command = ':lua require("toggleterm").exec("' .. spring_boot_run .. '")<CR>'
+    --map('n', '<leader>sr', command)
+    --map('n', '<leader>oi', ':lua require("jdtls").organize_imports()<CR>')
+    --map('n', '<leader>jc', ':lua require("jdtls).compile("incremental") ' )
+--end
+
+
