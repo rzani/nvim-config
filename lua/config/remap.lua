@@ -25,11 +25,6 @@ map("n", ",<Space>", ":nohlsearch<CR>")
 
 
 
-
-
-
-
-
 -- Floating Terminal
 --map('n', '<C-i>', '<CMD>lua require("FTerm").toggle()<CR>')
 --map('t', '<C-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
@@ -38,38 +33,13 @@ map("n", ",<Space>", ":nohlsearch<CR>")
 -- NvimTree
 --map('n', '-', ':NvimTreeToggle <CR>')
 
--- ------- --
--- PLUGINS --
--- ------- --
-
-
-
--- GitSigns
--- --------------------
-
-
--- Hop (easy motion)
--- --------------------
---local hop = require('hop')
---local directions = require('hop.hint').HintDirection
-
---map('n', '<Space>f', function()
-  --hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
---end, {remap=true})
-
---map('n', '<Space>F', function()
-  --hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
---end, {remap=true})
---
---map('n', '<Space><Space>', ':HopPattern <CR>')
-
 --function P.map_java_keys(bufnr)
     --map_lsp_keys()
-    local spring_boot_run = 'mvn spring-boot:run'---Dspring-boot.run.profiles=local'
-    local command = ':lua require("toggleterm").exec("' .. spring_boot_run .. '")<CR>'
-    map('n', '<leader>sr', command)
-    map('n', '<leader>oi', ':lua require("jdtls").organize_imports()<CR>')
-    map('n', '<leader>jc', ':lua require("jdtls).compile("incremental") ' )
+    --local spring_boot_run = 'mvn spring-boot:run'---Dspring-boot.run.profiles=local'
+    --local command = ':lua require("toggleterm").exec("' .. spring_boot_run .. '")<CR>'
+    --map('n', '<leader>sr', command)
+    --map('n', '<leader>oi', ':lua require("jdtls").organize_imports()<CR>')
+    --map('n', '<leader>jc', ':lua require("jdtls).compile("incremental") ' )
 --end
 
 

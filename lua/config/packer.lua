@@ -54,7 +54,7 @@ return require('packer').startup({function(use)
     --}
 
     -- Show keymaps
-    use  'folke/which-key.nvim'
+    use { 'folke/which-key.nvim' }
 
     -- Icons
     use { 'nvim-tree/nvim-web-devicons' }
@@ -78,7 +78,7 @@ return require('packer').startup({function(use)
     --use 'numToStr/FTerm.nvim'
 
     -- Easy Motion
-    --use 'phaazon/hop.nvim'
+    use 'smoka7/hop.nvim'
 
     -- Smooth Scrolling
     --use 'karb94/neoscroll.nvim'
