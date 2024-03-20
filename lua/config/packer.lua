@@ -1,125 +1,155 @@
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup({function(use)
+return require('packer').startup({
+    function(use)
+        use 'wbthomason/packer.nvim'
 
-    use 'wbthomason/packer.nvim'
+        --==  Extension  ==--
 
-    --==  Extension  ==--
+        -- Theme
+        use({
+            'rose-pine/neovim',
+            as = 'rose-pine',
+            config = function()
+                vim.cmd('colorscheme rose-pine')
+            end
+        })
 
-    -- Theme
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
-
-    -- File Explorer
-    use {
-        'simonmclean/triptych.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim', -- required
-            'nvim-tree/nvim-web-devicons', -- optional
+        -- File Explorer
+        use {
+            'simonmclean/triptych.nvim',
+            requires = {
+                'nvim-lua/plenary.nvim',       -- required
+                'nvim-tree/nvim-web-devicons', -- optional
+            }
         }
-    }
 
-    -- Syntax highlight
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-
-    -- File search and dialog management
-    use {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.4',
-        requires = {{'nvim-lua/plenary.nvim'}}
-    }
-
-    -- Easy Motion
-    use 'smoka7/hop.nvim'
-
-    -- List of all edition changes
-    use { 'mbbill/undotree' }
-
-    --Startup page
-    use { 'goolord/alpha-nvim' }
-
-    -- Show keymaps
-    use { 'folke/which-key.nvim' }
-
-    -- Icons
-    use { 'nvim-tree/nvim-web-devicons' }
-
-    -- Git diff signs
-    use  { 'lewis6991/gitsigns.nvim' }
-
-    -- Status Line
-    use { 'freddiehaddad/feline.nvim' }
-
-    -- Git integration
-    use {
-        "NeogitOrg/neogit",
-        requires = {
-            "sindrets/diffview.nvim",        -- optional - Diff integration
-            "nvim-telescope/telescope.nvim", -- optional
+        -- Syntax highlight
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate'
         }
-    }
 
-    -- Auto Pairs
-    use 'windwp/nvim-autopairs'
+        -- File search and dialog management
+        use {
+            'nvim-telescope/telescope.nvim',
+            tag = '0.1.4',
+            requires = { { 'nvim-lua/plenary.nvim' } }
+        }
 
+        -- Easy Motion
+        use 'smoka7/hop.nvim'
 
-    --
-    --== LSP ==--
-    --
-    use { 'neovim/nvim-lspconfig' }
+        -- List of all edition changes
+        use { 'mbbill/undotree' }
 
-    use {'williamboman/mason.nvim'}
-    use {'williamboman/mason-lspconfig.nvim'}
+        --Startup page
+        use { 'goolord/alpha-nvim' }
 
-    -- Autocompletion plugin
-    use 'hrsh7th/nvim-cmp'
+        -- Show keymaps
+        use { 'folke/which-key.nvim' }
 
-    -- LSP source for nvim-cmp
-    use 'hrsh7th/cmp-nvim-lsp'
+        -- Icons
+        use { 'nvim-tree/nvim-web-devicons' }
 
-    -- Snippets source for nvim-cmp
-    use 'saadparwaiz1/cmp_luasnip'
+        -- Git diff signs
+        use { 'lewis6991/gitsigns.nvim' }
 
-    -- Snippets plugin
-    use 'L3MON4D3/LuaSnip'
+        -- Status Line
+        use { 'freddiehaddad/feline.nvim' }
 
+        -- Git integration
+        use {
+            "NeogitOrg/neogit",
+            requires = {
+                "sindrets/diffview.nvim",        -- optional - Diff integration
+                "nvim-telescope/telescope.nvim", -- optional
+            }
+        }
 
-    --use {
-     --   "L3MON4D3/LuaSnip",
+        -- Auto Pairs
+        use 'windwp/nvim-autopairs'
+
+        -- Cheatsheet
+        use {
+            'sudormrfbin/cheatsheet.nvim',
+
+            requires = {
+                { 'nvim-telescope/telescope.nvim' },
+                { 'nvim-lua/popup.nvim' },
+                { 'nvim-lua/plenary.nvim' },
+            }
+        }
+
+        use({
+            "kylechui/nvim-surround",
+            tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+            config = function()
+                require("nvim-surround").setup({
+                    -- Configuration here, or leave empty to use defaults
+                })
+            end
+        })
+
+        use { 'nvim-tree/nvim-tree.lua' }
+
+        --
+        --== LSP ==--
+        --
+        use { 'neovim/nvim-lspconfig' }
+
+        use { 'williamboman/mason.nvim' }
+        use { 'williamboman/mason-lspconfig.nvim' }
+
+        -- Autocompletion plugin
+        use 'hrsh7th/nvim-cmp'
+
+        -- LSP source for nvim-cmp
+        use 'hrsh7th/cmp-nvim-lsp'
+
+        -- Snippets source for nvim-cmp
+        use 'saadparwaiz1/cmp_luasnip'
+
+        -- Snippets plugin
+        use { 'L3MON4D3/LuaSnip',
+            tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+            -- install jsregexp (optional!:).
+            run = "make install_jsregexp"
+        }
+
+        use {
+            "aznhe21/actions-preview.nvim",
+        }
+
+        --use {
+        --   "L3MON4D3/LuaSnip",
         -- follow latest release.
-      --  tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        --  tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!:).
-       -- run = "make install_jsregexp"
---    }
+        -- run = "make install_jsregexp"
+        --    }
 
-    -- for live_grep in telescope
-    --use 'BurntSushi/ripgrep'
+        -- for live_grep in telescope
+        --use 'BurntSushi/ripgrep'
 
-    -- improve find_files in telescope
-    --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        -- improve find_files in telescope
+        --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-    -- Java
-    -- brew install jdtls
-    --use 'mfussenegger/nvim-jdtls'
+        -- Java
+        -- brew install jdtls
+        --use 'mfussenegger/nvim-jdtls'
 
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-end,
+        if packer_bootstrap then
+            require('packer').sync()
+        end
+    end,
 
-config = {
-    display = {
-        open_fn = require('packer.util').float,
+    config = {
+        display = {
+            open_fn = require('packer.util').float,
+        }
     }
-}})
+})
 
 
 
@@ -130,12 +160,10 @@ config = {
 
 
 --function P.map_java_keys(bufnr)
-    --map_lsp_keys()
-    --local spring_boot_run = 'mvn spring-boot:run'---Dspring-boot.run.profiles=local'
-    --local command = ':lua require("toggleterm").exec("' .. spring_boot_run .. '")<CR>'
-    --map('n', '<leader>sr', command)
-    --map('n', '<leader>oi', ':lua require("jdtls").organize_imports()<CR>')
-    --map('n', '<leader>jc', ':lua require("jdtls).compile("incremental") ' )
+--map_lsp_keys()
+--local spring_boot_run = 'mvn spring-boot:run'---Dspring-boot.run.profiles=local'
+--local command = ':lua require("toggleterm").exec("' .. spring_boot_run .. '")<CR>'
+--map('n', '<leader>sr', command)
+--map('n', '<leader>oi', ':lua require("jdtls").organize_imports()<CR>')
+--map('n', '<leader>jc', ':lua require("jdtls).compile("incremental") ' )
 --end
-
-

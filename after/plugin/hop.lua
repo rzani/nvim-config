@@ -7,7 +7,7 @@ local directions = require('hop.hint').HintDirection
 
 wk.register({
   ["<space>"] = { name = "+hop" },
-  ["<space><space>"] = { ':HopPattern <CR>', "jump" }
+  ["<space><space>"] = { ':HopPattern <CR>', "Hop jump" }
 }, { 
     mode = "n"
 })

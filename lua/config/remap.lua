@@ -43,5 +43,3 @@ map("i", "<C-c>", "<Esc>")
 
 map("n", "<C-k>", "<cmd>cnext<CR>zz")
 map("n", "<C-j>", "<cmd>cprev<CR>zz")
-
-

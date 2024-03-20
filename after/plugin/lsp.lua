@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             ["D"] = { vim.lsp.buf.declaration, "Go to declaration" },
             ["d"] = { vim.lsp.buf.definition, "Go to definition" },
             ["i"] = { vim.lsp.buf.implementation, "Go to implementation" },
-            ["r"] = { vim.lsp.buf.references, "Go to references" },
+            ["r"] = { require('telescope.builtin').lsp_references, "Go to references" },
             ["t"] = { vim.lsp.buf.type_definition, "Go to type definition" }
         }, {
             prefix = "g",
@@ -121,7 +121,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 a = { vim.lsp.buf.add_workspace_folder, "Add workspace folder" },
                 r = { vim.lsp.buf.remove_workspace_folder, "Remove workspace folder" },
                 l = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders" }
-            }
+            },
+            ["f"] = { function() vim.lsp.buf.format { async = true } end, "Format" },
+            ["a"] = { require("actions-preview").code_actions, "Code Action" }
+
         }, {
             prefix = "<leader>",
             buffer = ev.buf
@@ -131,7 +134,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 
-        map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
         map('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
     end,
 })
