@@ -98,11 +98,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local opts = { buffer = ev.buf }
 
         wk.register({
-            ["D"] = { vim.lsp.buf.declaration, "Go to declaration" },
-            ["d"] = { vim.lsp.buf.definition, "Go to definition" },
-            ["i"] = { vim.lsp.buf.implementation, "Go to implementation" },
-            ["r"] = { require('telescope.builtin').lsp_references, "Go to references" },
-            ["t"] = { vim.lsp.buf.type_definition, "Go to type definition" }
+            ["D"] = { vim.lsp.buf.declaration, "go to declaration" },
+            ["d"] = { vim.lsp.buf.definition, "go to definition" },
+            ["i"] = { vim.lsp.buf.implementation, "go to implementation" },
+            ["r"] = { require('telescope.builtin').lsp_references, "go to references" },
+            ["t"] = { vim.lsp.buf.type_definition, "go to type definition" }
         }, {
             prefix = "g",
             buffer = ev.buf,
@@ -110,30 +110,26 @@ vim.api.nvim_create_autocmd('LspAttach', {
         })
 
         wk.register({
-            ["K"] = { vim.lsp.buf.hover, "Hover box description" }
+            ["K"] = { vim.lsp.buf.hover, "hover box description" }
         }, {
             buffer = ev.buf
         })
 
         wk.register({
             w = {
-                name = " Workspace", -- optional group name
-                a = { vim.lsp.buf.add_workspace_folder, "Add workspace folder" },
-                r = { vim.lsp.buf.remove_workspace_folder, "Remove workspace folder" },
-                l = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders" }
+                name = " workspace", -- optional group name
+                a = { vim.lsp.buf.add_workspace_folder, "add workspace folder" },
+                r = { vim.lsp.buf.remove_workspace_folder, "remove workspace folder" },
+                l = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "list workspace folders" }
             },
-            ["f"] = { function() vim.lsp.buf.format { async = true } end, "Format" },
-            ["a"] = { require("actions-preview").code_actions, "Code Action" }
+            ["f"] = { function() vim.lsp.buf.format { async = true } end, "format" },
+            ["a"] = { require("actions-preview").code_actions, "code Action" }
 
         }, {
             prefix = "<leader>",
             buffer = ev.buf
         })
 
-        --map("n", "<leader>r", )
-
         map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-
-        map('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
     end,
 })

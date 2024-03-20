@@ -7,7 +7,6 @@ vim.opt.termguicolors = true
 
 -- empty setup using defaults
 require("nvim-tree").setup()
-local wk = require('which-key')
 
 -- OR setup with some options
 require("nvim-tree").setup({
@@ -25,9 +24,3 @@ require("nvim-tree").setup({
     },
 })
 
-wk.register({
-    ["t"] = { ':NvimTreeToggle<Cr>', "Nerd Tree" }
-}, {
-    prefix = "<leader>",
-    mode = "n"
-})
