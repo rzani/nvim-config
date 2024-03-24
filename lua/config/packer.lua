@@ -121,6 +121,8 @@ return require('packer').startup({
             "aznhe21/actions-preview.nvim",
         }
 
+        use { 'mfussenegger/nvim-jdtls' }
+
         --use {
         --   "L3MON4D3/LuaSnip",
         -- follow latest release.

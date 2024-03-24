@@ -1,2 +1,1 @@
-local gs = require('gitsigns')
-gs.setup()
+require('gitsigns').setup()

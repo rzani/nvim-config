@@ -1,14 +1,25 @@
 local lspconfig = require('lspconfig')
 local wk = require("which-key")
 local map = vim.keymap.set
+
 local servers = {
-    'tsserver', 'jdtls', 'lua_ls', 'dockerls'
+    'tsserver', 'jdtls', 'lua_ls', 'dockerls', 'lemminx'
 }
 
 require('mason').setup()
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+capabilities.workspace = {
+  configuration = true,
+  didChangeWatchedFiles = {
+    dynamicRegistration = true
+  },
+  didChangeConfiguration = {
+    dynamicRegistration = true
+  }
+}
 
 require('mason-lspconfig').setup({
     ensure_installed = servers,
@@ -120,11 +131,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 name = " workspace", -- optional group name
                 a = { vim.lsp.buf.add_workspace_folder, "add workspace folder" },
                 r = { vim.lsp.buf.remove_workspace_folder, "remove workspace folder" },
+                d = { ':cd %:h <CR>', 'set current file dir as workspace'},
                 l = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "list workspace folders" }
             },
-            ["f"] = { function() vim.lsp.buf.format { async = true } end, "format" },
             ["a"] = { require("actions-preview").code_actions, "code Action" }
-
         }, {
             prefix = "<leader>",
             buffer = ev.buf
