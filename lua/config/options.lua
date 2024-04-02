@@ -26,7 +26,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- no wrap line
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
@@ -52,7 +52,7 @@ vim.opt.isfname:append("@-@")
 -- fast updatetime
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 vim.opt.clipboard = "unnamedplus"
 

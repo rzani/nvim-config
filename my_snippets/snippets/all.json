@@ -1,0 +1,14 @@
+{
+	"Rodrigo Zani": {
+		"prefix": "rz",
+		"body": [
+			"Rodrigo Zani (rodrigo_zani@carrefour.com)"
+		]
+	},
+	"#!/bin/bah": {
+		"prefix": "#!",
+		"body": [
+			"#!/bin/bash"
+		]
+	}
+}

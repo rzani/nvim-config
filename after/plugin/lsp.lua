@@ -1,9 +1,8 @@
 local lspconfig = require('lspconfig')
 local wk = require("which-key")
-local map = vim.keymap.set
 
 local servers = {
-    'tsserver', 'jdtls', 'lua_ls', 'dockerls', 'lemminx'
+    'tsserver', 'lua_ls', 'dockerls', 'lemminx', 'golangci_lint_ls', 'bashls'
 }
 
 require('mason').setup()
@@ -12,13 +11,13 @@ require('mason').setup()
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 capabilities.workspace = {
-  configuration = true,
-  didChangeWatchedFiles = {
-    dynamicRegistration = true
-  },
-  didChangeConfiguration = {
-    dynamicRegistration = true
-  }
+    configuration = true,
+    didChangeWatchedFiles = {
+        dynamicRegistration = true
+    },
+    didChangeConfiguration = {
+        dynamicRegistration = true
+    }
 }
 
 require('mason-lspconfig').setup({
@@ -87,8 +86,6 @@ lspconfig.lua_ls.setup({
     }
 })
 
-lspconfig.tsserver.setup({})
-
 --map('n', '<space>e', vim.diagnostic.open_float)
 --map('n', '[d', vim.diagnostic.goto_prev)
 --map('n', ']d', vim.diagnostic.goto_next)
@@ -104,16 +101,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        -- Buffer local mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local opts = { buffer = ev.buf }
-
         wk.register({
-            ["D"] = { vim.lsp.buf.declaration, "go to declaration" },
-            ["d"] = { vim.lsp.buf.definition, "go to definition" },
-            ["i"] = { vim.lsp.buf.implementation, "go to implementation" },
-            ["r"] = { require('telescope.builtin').lsp_references, "go to references" },
-            ["t"] = { vim.lsp.buf.type_definition, "go to type definition" }
+            ["D"] = { vim.lsp.buf.declaration, "Go to declaration" },
+            ["d"] = { vim.lsp.buf.definition, "Go to definition" },
+            ["i"] = { vim.lsp.buf.implementation, "Go to implementation" },
+            ["r"] = { ":Telescope lsp_references show_line=false<CR>", "Go to references" },
+            ["t"] = { vim.lsp.buf.type_definition, "Go to type definition" }
         }, {
             prefix = "g",
             buffer = ev.buf,
@@ -128,18 +121,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         wk.register({
             w = {
-                name = " workspace", -- optional group name
-                a = { vim.lsp.buf.add_workspace_folder, "add workspace folder" },
-                r = { vim.lsp.buf.remove_workspace_folder, "remove workspace folder" },
-                d = { ':cd %:h <CR>', 'set current file dir as workspace'},
-                l = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "list workspace folders" }
+                name = "Workspace", -- optional group name
+                a = { vim.lsp.buf.add_workspace_folder, "Add workspace folder" },
+                r = { vim.lsp.buf.remove_workspace_folder, "Remove workspace folder" },
+                d = { ':cd %:h <CR>', 'Set current file dir as workspace' },
+                l = { function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, "List workspace folders" }
             },
             ["a"] = { require("actions-preview").code_actions, "code Action" }
         }, {
             prefix = "<leader>",
             buffer = ev.buf
         })
-
-        map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
     end,
 })

@@ -15,6 +15,13 @@ return require('packer').startup({
             end
         })
 
+        use ({
+            "catppuccin/nvim", as = "catppuccin",
+            config = function()
+                require("catppuccin").setup()
+            end
+        })
+
         -- File Explorer
         use {
             'simonmclean/triptych.nvim',
@@ -24,6 +31,9 @@ return require('packer').startup({
             }
         }
 
+        -- Navigation
+        use { 'christoomey/vim-tmux-navigator' }
+
         -- Syntax highlight
         use {
             'nvim-treesitter/nvim-treesitter',
@@ -31,10 +41,14 @@ return require('packer').startup({
         }
 
         -- File search and dialog management
+        -- brew install fd
         use {
             'nvim-telescope/telescope.nvim',
             tag = '0.1.4',
-            requires = { { 'nvim-lua/plenary.nvim' } }
+            requires = {
+                'nvim-lua/plenary.nvim',
+                'BurntSushi/ripgrep', -- live grep
+            }
         }
 
         -- Easy Motion
@@ -93,6 +107,12 @@ return require('packer').startup({
 
         use { 'nvim-tree/nvim-tree.lua' }
 
+        use { "karb94/neoscroll.nvim",
+            config = function ()
+                require('neoscroll').setup {}
+            end
+        }
+
         --
         --== LSP ==--
         --
@@ -100,6 +120,9 @@ return require('packer').startup({
 
         use { 'williamboman/mason.nvim' }
         use { 'williamboman/mason-lspconfig.nvim' }
+
+        -- Weirdo
+        use { 'mfussenegger/nvim-jdtls' }
 
         -- Autocompletion plugin
         use 'hrsh7th/nvim-cmp'
@@ -121,8 +144,6 @@ return require('packer').startup({
             "aznhe21/actions-preview.nvim",
         }
 
-        use { 'mfussenegger/nvim-jdtls' }
-
         --use {
         --   "L3MON4D3/LuaSnip",
         -- follow latest release.
@@ -132,14 +153,9 @@ return require('packer').startup({
         --    }
 
         -- for live_grep in telescope
-        --use 'BurntSushi/ripgrep'
 
         -- improve find_files in telescope
-        --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-        -- Java
-        -- brew install jdtls
-        --use 'mfussenegger/nvim-jdtls'
+        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
         if packer_bootstrap then
             require('packer').sync()
