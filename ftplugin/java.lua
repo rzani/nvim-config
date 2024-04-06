@@ -1,12 +1,14 @@
 local spring_boot_run = 'spring-run' ---Dspring-boot.run.profiles=local'
-local command = ':terminal ' .. spring_boot_run .. ' <CR>'
+local command = ':!tmux neww ' .. spring_boot_run .. ' <CR>'
 
 local wk = require("which-key")
 
+--map('n', '<leader>jc', ':lua require("jdtls).compile("incremental") ' )
 wk.register({
     l = {
         name = "lsp",
-        r = { command, 'run' }
+        r = { command, 'run' },
+        c = { require('jdtls').compile("incremental"), "incremental compile" }
     }
 }, {
     prefix = "<leader>",

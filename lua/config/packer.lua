@@ -15,8 +15,9 @@ return require('packer').startup({
             end
         })
 
-        use ({
-            "catppuccin/nvim", as = "catppuccin",
+        use({
+            "catppuccin/nvim",
+            as = "catppuccin",
             config = function()
                 require("catppuccin").setup()
             end
@@ -107,8 +108,9 @@ return require('packer').startup({
 
         use { 'nvim-tree/nvim-tree.lua' }
 
-        use { "karb94/neoscroll.nvim",
-            config = function ()
+        use {
+            "karb94/neoscroll.nvim",
+            config = function()
                 require('neoscroll').setup {}
             end
         }
@@ -144,16 +146,6 @@ return require('packer').startup({
             "aznhe21/actions-preview.nvim",
         }
 
-        --use {
-        --   "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        --  tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!:).
-        -- run = "make install_jsregexp"
-        --    }
-
-        -- for live_grep in telescope
-
         -- improve find_files in telescope
         use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
@@ -169,19 +161,6 @@ return require('packer').startup({
     }
 })
 
-
-
 -- Floating Terminal
 --map('n', '<C-i>', '<CMD>lua require("FTerm").toggle()<CR>')
 --map('t', '<C-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
-
-
-
---function P.map_java_keys(bufnr)
---map_lsp_keys()
---local spring_boot_run = 'mvn spring-boot:run'---Dspring-boot.run.profiles=local'
---local command = ':lua require("toggleterm").exec("' .. spring_boot_run .. '")<CR>'
---map('n', '<leader>sr', command)
---map('n', '<leader>oi', ':lua require("jdtls").organize_imports()<CR>')
---map('n', '<leader>jc', ':lua require("jdtls).compile("incremental") ' )
---end
