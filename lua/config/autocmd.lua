@@ -8,12 +8,3 @@ augroup vimrc-remember-cursor-position
 	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 ]])
-
---autocmd('TermOpen', {
-  --command = 'setlocal listchars= nonumber norelativenumber nocursorline',
---})
-
---autocmd('TermOpen', {
-  --pattern = '',
-  --command = 'startinsert'
---})

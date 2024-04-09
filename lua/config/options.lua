@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 
 -- Default encoding
-vim.g.encoding='UTF-8'
+vim.g.encoding = 'UTF-8'
 
 -- show numbers
 vim.opt.number = true
