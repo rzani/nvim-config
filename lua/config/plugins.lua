@@ -1,6 +1,4 @@
-local lazy = require("lazy")
-
-lazy.setup({
+require("lazy").setup({
 
     {
         "catppuccin/nvim",
