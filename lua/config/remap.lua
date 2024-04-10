@@ -12,6 +12,9 @@ map('n', '<leader>q', ':bp <BAR> bd! #<CR>')
 -- Switching between buffers
 map('n', ',.', '<C-^><CR>')
 
+-- Toggle code folding
+map('n', '=', 'za')
+
 -- Moving lines arround in visual mode
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
