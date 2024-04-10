@@ -1,4 +1,5 @@
 -- Syntax Highlight
+
 require('nvim-treesitter.configs').setup{
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
     ensure_installed = { "rust", "lua", "vim", "vimdoc", "query", "php", "java", "python", "go", "javascript" },
@@ -15,3 +16,6 @@ require('nvim-treesitter.configs').setup{
         --disable = { "bash" },
     },
 }
+
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"

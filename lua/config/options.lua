@@ -54,6 +54,9 @@ vim.opt.updatetime = 50
 
 -- vim.opt.colorcolumn = "80"
 vim.opt.foldcolumn = "1"
+vim.o.foldlevel = 20
+vim.o.foldlevelstart = 99
+vim.opt.foldenable = true
 
 vim.opt.clipboard = "unnamedplus"
 
