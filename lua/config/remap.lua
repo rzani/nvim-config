@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- Escape alternatives
-map('i', 'jj', '<esc>')
+map('i', 'jj', '<esc>:w<cr>')
 map('i', 'kk', '<esc>')
 map('i', '<C-f>', '<Right>')
 map('i', '<C-b>', '<Left>')
@@ -13,7 +13,7 @@ map('n', '<leader>q', ':bp <BAR> bd! #<CR>')
 map('n', ',.', '<C-^><CR>')
 
 -- Toggle code folding
-map('n', '=', 'za')
+--map('n', '=', 'za')
 
 -- Moving lines arround in visual mode
 map("v", "J", ":m '>+1<CR>gv=gv")

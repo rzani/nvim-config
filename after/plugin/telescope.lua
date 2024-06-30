@@ -15,6 +15,10 @@ require('telescope').setup{
         --lsp_references = {
             --theme = "dropdown"
         --},
+        buffers = {
+            ignore_current_buffer = true,
+            sort_lastused = true
+        },
         find_files = {
             find_command = {
                 'fd',

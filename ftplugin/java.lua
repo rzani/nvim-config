@@ -24,7 +24,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local jdtls_path = vim.fn.stdpath('data') .. "/mason/packages/jdtls"
 local path_to_lsp_server = jdtls_path .. "/config_mac_arm"
 local path_to_plugins = jdtls_path .. "/plugins/"
-local path_to_jar = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar"
+local path_to_jar = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.800.v20240304-1850.jar"
 -- "org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
 local lombok_path = jdtls_path .. "/lombok.jar"
 
@@ -56,7 +56,6 @@ local config = {
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-
     '-jar', path_to_jar,
     '-configuration', path_to_lsp_server,
     '-data', workspace_dir,
@@ -151,17 +150,17 @@ local config = {
   },
 }
 
-config['on_attach'] = function(_, bufnr)
-  --require'keymaps'.map_java_keys(bufnr);
-  require "lsp_signature".on_attach({
-    bind = true, -- This is mandatory, otherwise border config won't get registered.
-    floating_window_above_cur_line = false,
-    padding = '',
-    handler_opts = {
-      border = "rounded"
-    }
-  }, bufnr)
-end
+--config['on_attach'] = function(_, bufnr)
+--  --require'keymaps'.map_java_keys(bufnr);
+--  require "lsp_signature".on_attach({
+--    bind = true, -- This is mandatory, otherwise border config won't get registered.
+--    floating_window_above_cur_line = false,
+--    padding = '',
+--    handler_opts = {
+--      border = "rounded"
+--    }
+--  }, bufnr)
+--end
 
 
 -- This starts a new client & server,
