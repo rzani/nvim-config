@@ -66,7 +66,9 @@ return {
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+			preset = "modern",
+		},
 	},
 
 	{
@@ -188,7 +190,7 @@ return {
 	-- lsp stuff
 	{
 		"williamboman/mason.nvim",
-		cmd = { "Mason", "MasonInstall", "MasonUpdate" },
+		-- cmd = { "Mason", "MasonInstall", "MasonUpdate" },
 		opts = function()
 			return require("config.mason")
 		end,
@@ -209,9 +211,7 @@ return {
 		end,
 	},
 
-	{
-		"williamboman/mason-lspconfig.nvim",
-	},
+	{ "williamboman/mason-lspconfig.nvim" },
 
 	{
 		"nvim-java/nvim-java",

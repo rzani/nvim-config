@@ -1,18 +1,19 @@
 --require "nvchad.mappings"
 local wk = require("which-key")
 local map = vim.keymap.set
+
 -- Remaing the cursor when J
 map("n", "J", "mzJ`z", { desc = "Flat lines" })
 
 -- Centralize buffer while moving up an down the screen
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
+-- map("n", "<C-d>", "<C-d>zz")
+-- map("n", "<C-u>", "<C-u>zz")
 
 -- The MOST FANTASTIC keymap
 map("x", "<leader>p", '"_dp')
 
 -- Remove Hightligh from search
-map("n", ",<Space>", ":nohlsearch<CR>")
+-- map("n", ",<Space>", ":nohlsearch<CR>")
 
 map("n", "<C-k>", "<cmd>cnext<CR>zz")
 map("n", "<C-j>", "<cmd>cprev<CR>zz")
@@ -26,8 +27,19 @@ wk.add({
 		function()
 			require("telescope.builtin").buffers()
 		end,
-		desc = "List buffers",
+		desc = "Buffers list",
 	},
+	{
+		"<leader>?",
+		function()
+			wk.show({ global = false })
+		end,
+		desc = "Buffer local keymaps",
+	},
+
+	{ ",<leader>", ":nohlsearch<CR>", desc = "Remove hightligh from search" },
+	{ "<C-d>", "<C-d>zz", desc = "Scroll screen DOWN and centralize" },
+	{ "<C-u>", "<C-u>zz", desc = "Scroll screen UP and centralize" },
 
 	-- height control
 	{ "<M-->", "<C-w>-", desc = "Decrease Height" },
@@ -209,6 +221,11 @@ wk.add({
 	{ "<leader>w", group = "workspace", icon = "󰠳" },
 })
 -- X
+wk.add({
+	{ "<leader>X", "<cmd>source %<CR>", desc = "Source current file" },
+	{ "<leader>x", ":.lua<CR>", desc = "Run file as lua" },
+	{ "<leader>x", ":lua<CR>", desc = "Run file as lua", mode = "v" },
+})
 -- Y is fo Yank  -- Maybe 'll be removed
 wk.add({
 	{ "<leader>y", '"+y', desc = "Yank", mode = "n" },

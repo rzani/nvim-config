@@ -1,5 +1,5 @@
 return {
-	PATH = "skip",
+	-- PATH = "skip",
 
 	ui = {
 		icons = {
@@ -9,5 +9,10 @@ return {
 		},
 	},
 
-	max_concurrent_installers = 10,
+	registries = {
+		"github:nvim-java/mason-registry",
+		"github:mason-org/mason-registry",
+	},
+
+	-- max_concurrent_installers = 10,
 }
