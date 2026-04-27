@@ -1,6 +1,11 @@
 # Configuração Neovim
 
 Esta é uma configuração personalizada do Neovim.
+## Script necessários para o funcionamento total
+
+```
+npm install -g typescript-language-server typescript pyright vscode-langservers-extracted
+```
 
 ## Plugins Utilizados
 
